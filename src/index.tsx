@@ -10,8 +10,11 @@ import '@react-page/plugins-background/lib/index.css';
 import { SimpleExample } from './Editor/SimpleExample'; 
 import { LoginPage } from './LoginPage';
 import { Dashboard } from './Dashboard';
+import { useAuth } from './Store/authStore';
+
 
 const ReactPageExamples = () => {
+  const {auth} = useAuth()
   return (
     <Router>
       <Switch>
