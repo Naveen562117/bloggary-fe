@@ -20,13 +20,13 @@ const ReactPageExamples = () => {
       {!auth ? <Switch>
         <Route exact path="/">
           <LoginPage />
-        </Route> 
+        </Route>
         <Route exact path="/editor">
           <SimpleExample />
         </Route>
       </Switch>
         :
-        <Switch> 
+        <Switch>
           <Route exact path="/">
             <Dashboard />
           </Route>
