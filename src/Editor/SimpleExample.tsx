@@ -15,6 +15,7 @@ import background from '@react-page/plugins-background';
 // Stylesheets for  background layout plugin
 import '@react-page/plugins-background/lib/index.css';
 import { simpleDefaultState } from './Simple-default-state';
+import { useAuth } from '../Store/authStore';
 
 // Define which plugins we want to use.
 // We only have slate and background available, so load those.
@@ -28,6 +29,7 @@ const plugins = {
 };
 
 export const SimpleExample = () => {
+  const {auth} = useAuth()
   const [editorValue, setEditorValue] = useState(simpleDefaultState);
   return (
     <Editor
@@ -35,6 +37,7 @@ export const SimpleExample = () => {
       defaultPlugin={slate()}
       value={editorValue}
       onChange={setEditorValue}
+      readOnly={auth? false : true}
     />
   );
 };

@@ -21,7 +21,7 @@ const ReactPageExamples = () => {
         <Route exact path="/">
           <LoginPage />
         </Route>
-        <Route exact path="/editor">
+        <Route exact path="/:id">
           <SimpleExample />
         </Route>
       </Switch>
@@ -32,7 +32,10 @@ const ReactPageExamples = () => {
           </Route>
           <Route exact path="/editor">
             <SimpleExample />
-          </Route>
+          </Route> 
+        <Route exact path="/editor/:id">
+          <SimpleExample />
+        </Route>
         </Switch>
       }
     </Router>
