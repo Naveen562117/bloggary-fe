@@ -1,2 +1,1 @@
-# bloggary-fe
-http://www.bloggary.com
+# react-page-examples
