@@ -7,27 +7,34 @@ import '@react-page/ui/lib/index.css';
 import '@react-page/plugins-slate/lib/index.css';
 import '@react-page/plugins-background/lib/index.css';
 
-import { SimpleExample } from './Editor/SimpleExample'; 
+import { SimpleExample } from './Editor/SimpleExample';
 import { LoginPage } from './LoginPage';
 import { Dashboard } from './Dashboard';
 import { useAuth } from './Store/authStore';
 
 
 const ReactPageExamples = () => {
-  const {auth} = useAuth()
+  const { auth } = useAuth()
   return (
     <Router>
-      <Switch>
-      <Route exact path="/">
+      {!auth ? <Switch>
+        <Route exact path="/">
           <LoginPage />
-        </Route>
-        <Route exact path="/editor">
-          <Dashboard />
-        </Route>
+        </Route> 
         <Route exact path="/editor">
           <SimpleExample />
         </Route>
-       </Switch>
+      </Switch>
+        :
+        <Switch> 
+          <Route exact path="/">
+            <Dashboard />
+          </Route>
+          <Route exact path="/editor">
+            <SimpleExample />
+          </Route>
+        </Switch>
+      }
     </Router>
   );
 };
